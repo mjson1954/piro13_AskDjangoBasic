@@ -9,5 +9,6 @@ from django.http import HttpResponse
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('shop/', include('shop.urls')),
+    path('blog/', include('blog.urls')),
     # path('mysum/<int:x>/<int:y>/', mysum),
 ]
