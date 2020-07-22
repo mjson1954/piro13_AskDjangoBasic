@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 class Item(models.Model):
     name = models.CharField(max_length=100, validators=[])
@@ -10,3 +11,6 @@ class Item(models.Model):
 
     def __str__(self):
         return f'<{self.pk}> {self.name}'
+
+class Post(models.Model):
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
