@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'blog',
     'debug_toolbar',
+    'django_jinja',
 ]
 
 MIDDLEWARE = [
@@ -57,6 +58,22 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'askcompany.urls'
 
 TEMPLATES = [
+    {
+        'BACKEND': 'django_jinja.backend.jinja2',
+        'APP_DIRS': True,
+        'OPTIONS':{
+            "match_extension": ".jinja",
+            "context_processors": [
+                "django.contrib.auth.context_processors.auth",
+                "django.template.context_processors.debug",
+                "django.template.context_processors.i18n",
+                "django.template.context_processors.media",
+                "django.template.context_processors.static",
+                "django.template.context_processors.tz",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
